@@ -322,33 +322,45 @@ local function writeArmorStats(item, floor)
     result = result .. lib_helpers.TextC(false, lib_items_cfg.white, "[")
 
     local statColor
-    if item.armor.dfp == 0 then
+    if item.armor.dfp == item.armor.dfpMax then
+        statColor = lib_items_cfg.armorStatsMax
+    elseif item.armor.dfp >= item.armor.dfpMax / 2 then
+        statColor = lib_items_cfg.armorStatsGood
+    elseif item.armor.dfp == 0 then
         statColor = lib_items_cfg.grey
     else
-        statColor = lib_items_cfg.armorStats
+        statColor = lib_items_cfg.armorStatsPoor
     end
     result = result .. lib_helpers.TextC(false, statColor, "%i", item.armor.dfp)
     result = result .. lib_helpers.TextC(false, lib_items_cfg.white, "/")
-    if item.armor.dfpMax == 0 then
-        statColor = lib_items_cfg.grey
+    if item.armor.dfp == item.armor.dfpMax then
+        statColor = lib_items_cfg.armorStatsMax
+    elseif item.armor.dfp >= item.armor.dfpMax / 2 then
+        statColor = lib_items_cfg.armorStatsGood
     else
-        statColor = lib_items_cfg.armorStats
+        statColor = lib_items_cfg.armorStatsPoor
     end
     result = result .. lib_helpers.TextC(false, statColor, "%i", item.armor.dfpMax)
 
     result = result .. lib_helpers.TextC(false, lib_items_cfg.white, " | ")
 
-    if item.armor.evp == 0 then
+    if item.armor.evp == item.armor.evpMax then
+        statColor = lib_items_cfg.armorStatsMax
+    elseif item.armor.evp >= item.armor.evpMax / 2 then
+        statColor = lib_items_cfg.armorStatsGood
+    elseif item.armor.evp == 0 then
         statColor = lib_items_cfg.grey
     else
-        statColor = lib_items_cfg.armorStats
+        statColor = lib_items_cfg.armorStatsPoor
     end
     result = result .. lib_helpers.TextC(false, statColor, "%i", item.armor.evp)
     result = result .. lib_helpers.TextC(false, lib_items_cfg.white, "/")
-    if item.armor.evpMax == 0 then
-        statColor = lib_items_cfg.grey
+    if item.armor.evp == item.armor.evpMax then
+        statColor = lib_items_cfg.armorStatsMax
+    elseif item.armor.evp >= item.armor.evpMax / 2 then
+        statColor = lib_items_cfg.yellow
     else
-        statColor = lib_items_cfg.armorStats
+        statColor = lib_items_cfg.armorStatsPoor
     end
     result = result .. lib_helpers.TextC(false, statColor, "%i", item.armor.evpMax)
     result = result .. lib_helpers.TextC(false, lib_items_cfg.white, "] ")
@@ -373,6 +385,23 @@ local function ProcessWeapon(item, floor)
                 show_item = true
             end
         end
+		if nameColor == lib_items_cfg.weaponName or nameColor == C_UNCOMMON then
+			if item.weapon.stats[6] >= 60 then
+				nameColor = C_UBER
+			elseif item.weapon.stats[6] >= 55 then
+				nameColor = C_LEGENDARY
+			elseif item.weapon.stats[6] >= 50 then
+				nameColor = C_RARE
+    end
+		elseif nameColor == C_LEGENDARY and item.weapon.stats[6] >= 30 then
+			nameColor = C_UBER
+		elseif nameColor == C_RARE then
+			if item.weapon.stats[6] >= 50 then
+				nameColor = C_UBER
+			elseif item.weapon.stats[6] >= 30 then
+				nameColor = C_LEGENDARY
+			end
+		end
     end
 
     if show_item then
@@ -828,7 +857,7 @@ local function ProcessTool(item, floor)
             result = result .. lib_helpers.TextC(false, lib_items_cfg.techLevel, "Lv%i ", item.tool.level)
         else
             result = result .. lib_helpers.TextC(false, nameColor, "%s ", TrimString(item.name, options.itemNameLength))
-            if item.tool.count > 0 then
+            if item.tool.count > 1 then
                 result = result .. lib_helpers.TextC(false, lib_items_cfg.toolAmount, "x%i ", item.tool.count)
             end
         end

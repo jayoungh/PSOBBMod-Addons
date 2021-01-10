@@ -89,61 +89,61 @@ local weaponSpecial =
 local weaponAttributesEnabled = true
 local weaponAttributesNative =
 {
-    100, 0xFFFFFFFF,
-     90, 0xFFFFFFFF,
-     80, 0xFFFFFFFF,
-     70, 0xFFFFFFFF,
-     60, 0xFFFFFFFF,
-     50, 0xFFFFFFFF,
-     40, 0xFFFFFFFF,
-     30, 0xFFFFFFFF,
-     20, 0xFFFFFFFF,
-     10, 0xFFFFFFFF,
+    100, 0xFF2B801F,    
+     90, 0xFF3B8E2D,
+     80, 0xFF4A9C3C,     
+     70, 0xFF5AAA4A,     
+     60, 0xFF69B859,
+     50, 0xFF79C667,
+     40, 0xFF88D476,
+     30, 0xFF99E284,
+     20, 0xFFA7F093,     
+     10, 0xFFB8FFA1,
       0, 0xFFA0A0A0,
      -1, 0xFFA0A0A0,
 }
 local weaponAttributesABeast =
 {
-    100, 0xFFFFFFFF,
-     90, 0xFFFFFFFF,
-     80, 0xFFFFFFFF,
-     70, 0xFFFFFFFF,
-     60, 0xFFFFFFFF,
-     50, 0xFFFFFFFF,
-     40, 0xFFFFFFFF,
-     30, 0xFFFFFFFF,
-     20, 0xFFFFFFFF,
-     10, 0xFFFFFFFF,
+    100, 0xFFFFFF33,
+     90, 0xFFFFFF3E,
+     80, 0xFFFFFF49,
+     70, 0xFFFFFF55,
+     60, 0xFFFFFF60,
+     50, 0xFFFFFF6B,
+     40, 0xFFFFFF77,
+     30, 0xFFFFFF82,
+     20, 0xFFFFFF8D,
+     10, 0xFFFFFF99,
       0, 0xFFA0A0A0,
      -1, 0xFFA0A0A0,
 }
 local weaponAttributesMachine =
 {
-    100, 0xFFFFFFFF,
-     90, 0xFFFFFFFF,
-     80, 0xFFFFFFFF,
-     70, 0xFFFFFFFF,
-     60, 0xFFFFFFFF,
-     50, 0xFFFFFFFF,
-     40, 0xFFFFFFFF,
-     30, 0xFFFFFFFF,
-     20, 0xFFFFFFFF,
-     10, 0xFFFFFFFF,
+    100, 0xFFFF4500,
+     90, 0xFFFF4F0E,
+     80, 0xFFFF5A1C,
+     70, 0xFFFF642A,
+     60, 0xFFFF6E39,
+     50, 0xFFFF7947,
+     40, 0xFFFF8355,
+     30, 0xFFFF8D63,
+     20, 0xFFFF9871,
+     10, 0xFFFFA280,
       0, 0xFFA0A0A0,
      -1, 0xFFA0A0A0,
 }
 local weaponAttributesDark =
 {
-    100, 0xFFFFFFFF,
-     90, 0xFFFFFFFF,
-     80, 0xFFFFFFFF,
-     70, 0xFFFFFFFF,
-     60, 0xFFFFFFFF,
-     50, 0xFFFFFFFF,
-     40, 0xFFFFFFFF,
-     30, 0xFFFFFFFF,
-     20, 0xFFFFFFFF,
-     10, 0xFFFFFFFF,
+    100, 0xFFCD00FF,
+     90, 0xFFD315FF,
+     80, 0xFFD82AFF,
+     70, 0xFFDE3FFF,
+     60, 0xFFE354FF,
+     50, 0xFFE969FF,
+     40, 0xFFEE7EFF,
+     30, 0xFFF493FF,
+     20, 0xFFF9A8FF,
+     10, 0xFFFFBDFF,
       0, 0xFFA0A0A0,
      -1, 0xFFA0A0A0,
 }
@@ -165,7 +165,9 @@ local weaponHit =
 
 -- ARMOR (Frame and Barrier)
 local armorName = 0xFFB060B0
-local armorStats = 0xFF28CC66
+local armorStatsPoor = brown
+local armorStatsGood = yellow
+local armorStatsMax = red
 local armorSlots = 0xFFFFFF00
 
 -- ARMOR (Unit)
@@ -229,7 +231,9 @@ return
     weaponAttributesDark = weaponAttributesDark,
     weaponHit = weaponHit,
     armorName = armorName,
-    armorStats = armorStats,
+    armorStatsPoor = armorStatsPoor,
+    armorStatsGood = armorStatsGood,
+    armorStatsMax = armorStatsMax,
     armorSlots = armorSlots,
     unitName = unitName,
     unitKills = unitKills,
