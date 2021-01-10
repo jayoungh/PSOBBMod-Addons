@@ -385,23 +385,24 @@ local function ProcessWeapon(item, floor)
                 show_item = true
             end
         end
-		if nameColor == lib_items_cfg.weaponName or nameColor == C_UNCOMMON then
+        
+		if nameColor == lib_items_cfg.weaponName or nameColor == COLOR_UNCOMMON then
 			if item.weapon.stats[6] >= 60 then
-				nameColor = C_UBER
+				nameColor = COLOR_UBER
 			elseif item.weapon.stats[6] >= 55 then
-				nameColor = C_LEGENDARY
+				nameColor = COLOR_LEGENDARY
 			elseif item.weapon.stats[6] >= 50 then
-				nameColor = C_RARE
-    end
-		elseif nameColor == C_LEGENDARY and item.weapon.stats[6] >= 30 then
-			nameColor = C_UBER
-		elseif nameColor == C_RARE then
-			if item.weapon.stats[6] >= 50 then
-				nameColor = C_UBER
-			elseif item.weapon.stats[6] >= 30 then
-				nameColor = C_LEGENDARY
-			end
-		end
+				nameColor = COLOR_RARE
+            end
+        elseif nameColor == COLOR_LEGENDARY and item.weapon.stats[6] >= 30 then
+            nameColor = COLOR_UBER
+        elseif nameColor == COLOR_RARE then
+            if item.weapon.stats[6] >= 50 then
+                nameColor = COLOR_UBER
+            elseif item.weapon.stats[6] >= 30 then
+                nameColor = COLOR_LEGENDARY            
+            end
+        end
     end
 
     if show_item then

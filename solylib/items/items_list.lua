@@ -6,13 +6,13 @@ local t = {}
 -- color for the item. For Armors/Units/Weapons, this will also disable the ability for
 -- that item to be filtered).
 -- Setting the flag to false, will make the addon NOT print the item when its on the floor
-local COLOR_DFLT       = 0x00000000
-local COLOR_TOOLS      = lib_items_cfg.toolName
-local COLOR_MUSIC      = lib_items_cfg.lavender
-local COLOR_UNCOMMON   = lib_items_cfg.brown
-local COLOR_RARE       = lib_items_cfg.orange
-local COLOR_LEGENDARY  = lib_items_cfg.yellow
-local COLOR_UBER       = lib_items_cfg.red
+COLOR_DFLT       = 0x00000000
+COLOR_TOOLS      = lib_items_cfg.toolName
+COLOR_MUSIC      = lib_items_cfg.lavender
+COLOR_UNCOMMON   = lib_items_cfg.brown
+COLOR_RARE       = lib_items_cfg.orange
+COLOR_LEGENDARY  = lib_items_cfg.yellow
+COLOR_UBER       = lib_items_cfg.red
 
 ---------------- Weapon
 t[ 0x000000 ] = { COLOR_DFLT, true } -- Saber
