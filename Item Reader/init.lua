@@ -955,7 +955,7 @@ local function PresentInventory(save, index)
     end
     local itemCount = table.getn(cache_inventory.items)
 
-    lib_helpers.TextC(false, lib_items_cfg.itemIndex, "Meseta: %i", cache_inventory.meseta)
+    lib_helpers.TextC(false, lib_items_cfg.itemIndex, "  Meseta: %i", cache_inventory.meseta)
 
     for i=1,itemCount,1 do
         ProcessItem(cache_inventory.items[i], false, save)
@@ -968,7 +968,7 @@ local function PresentBank(save)
     end
     local itemCount = table.getn(cache_bank.items)
 
-    lib_helpers.TextC(false, lib_items_cfg.itemIndex, "Meseta: %i | Count: %i", cache_bank.meseta, itemCount)
+    lib_helpers.TextC(true, lib_items_cfg.itemIndex, "  Meseta: %i | Count: %i", cache_bank.meseta, itemCount)
 
     for i=1,itemCount,1 do
         ProcessItem(cache_bank.items[i], false, save)

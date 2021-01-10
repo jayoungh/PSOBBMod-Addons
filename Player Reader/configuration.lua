@@ -76,7 +76,7 @@ local function ConfigurationWindow(configuration)
             end
 
             imgui.Text("Position and Size")
-            imgui.PushItemWidth(200)
+            imgui.PushItemWidth(250)
             success, _configuration.allPlayersAnchor = imgui.Combo("Anchor", _configuration.allPlayersAnchor, anchorList, table.getn(anchorList))
             imgui.PopItemWidth()
             if success then
@@ -84,7 +84,7 @@ local function ConfigurationWindow(configuration)
                 this.changed = true
             end
 
-            imgui.PushItemWidth(100)
+            imgui.PushItemWidth(125)
             success, _configuration.allPlayersX = imgui.InputInt("X", _configuration.allPlayersX)
             imgui.PopItemWidth()
             if success then
@@ -92,8 +92,9 @@ local function ConfigurationWindow(configuration)
                 this.changed = true
             end
 
-            imgui.SameLine(0, 38)
-            imgui.PushItemWidth(100)
+            --imgui.SameLine(0, 38)
+            imgui.SameLine(0, 53)
+            imgui.PushItemWidth(125)
             success, _configuration.allPlayersY = imgui.InputInt("Y", _configuration.allPlayersY)
             imgui.PopItemWidth()
             if success then
@@ -101,7 +102,7 @@ local function ConfigurationWindow(configuration)
                 this.changed = true
             end
 
-            imgui.PushItemWidth(100)
+            imgui.PushItemWidth(125)
             success, _configuration.allPlayersW = imgui.InputInt("Width", _configuration.allPlayersW)
             imgui.PopItemWidth()
             if success then
@@ -110,7 +111,7 @@ local function ConfigurationWindow(configuration)
             end
 
             imgui.SameLine(0, 10)
-            imgui.PushItemWidth(100)
+            imgui.PushItemWidth(125)
             success, _configuration.allPlayersH = imgui.InputInt("Height", _configuration.allPlayersH)
             imgui.PopItemWidth()
             if success then
@@ -191,7 +192,7 @@ local function ConfigurationWindow(configuration)
                     end
 
                     imgui.Text("Position and Size")
-                    imgui.PushItemWidth(200)
+                    imgui.PushItemWidth(250)
                     success, _configuration.players[i].Anchor = imgui.Combo("Anchor", _configuration.players[i].Anchor, anchorList, table.getn(anchorList))
                     imgui.PopItemWidth()
                     if success then
@@ -199,7 +200,7 @@ local function ConfigurationWindow(configuration)
                         this.changed = true
                     end
 
-                    imgui.PushItemWidth(100)
+                    imgui.PushItemWidth(125)
                     success, _configuration.players[i].X = imgui.InputInt("X", _configuration.players[i].X)
                     imgui.PopItemWidth()
                     if success then
@@ -207,8 +208,9 @@ local function ConfigurationWindow(configuration)
                         this.changed = true
                     end
 
-                    imgui.SameLine(0, 38)
-                    imgui.PushItemWidth(100)
+                    --imgui.SameLine(0, 38)
+                    imgui.SameLine(0, 53)
+                    imgui.PushItemWidth(125)
                     success, _configuration.players[i].Y = imgui.InputInt("Y", _configuration.players[i].Y)
                     imgui.PopItemWidth()
                     if success then
@@ -216,7 +218,7 @@ local function ConfigurationWindow(configuration)
                         this.changed = true
                     end
 
-                    imgui.PushItemWidth(100)
+                    imgui.PushItemWidth(125)
                     success, _configuration.players[i].W = imgui.InputInt("Width", _configuration.players[i].W)
                     imgui.PopItemWidth()
                     if success then
@@ -225,7 +227,7 @@ local function ConfigurationWindow(configuration)
                     end
 
                     imgui.SameLine(0, 10)
-                    imgui.PushItemWidth(100)
+                    imgui.PushItemWidth(125)
                     success, _configuration.players[i].H = imgui.InputInt("Height", _configuration.players[i].H)
                     imgui.PopItemWidth()
                     if success then
@@ -319,7 +321,7 @@ local function ConfigurationWindow(configuration)
             end
 
             imgui.Text("Position and Size")
-            imgui.PushItemWidth(200)
+            imgui.PushItemWidth(250)
             success, _configuration.myself.Anchor = imgui.Combo("Anchor", _configuration.myself.Anchor, anchorList, table.getn(anchorList))
             imgui.PopItemWidth()
             if success then
@@ -327,7 +329,7 @@ local function ConfigurationWindow(configuration)
                 this.changed = true
             end
 
-            imgui.PushItemWidth(100)
+            imgui.PushItemWidth(125)
             success, _configuration.myself.X = imgui.InputInt("X", _configuration.myself.X)
             imgui.PopItemWidth()
             if success then
@@ -335,8 +337,9 @@ local function ConfigurationWindow(configuration)
                 this.changed = true
             end
 
-            imgui.SameLine(0, 38)
-            imgui.PushItemWidth(100)
+            --imgui.SameLine(0, 38)
+            imgui.SameLine(0, 53)
+            imgui.PushItemWidth(125)
             success, _configuration.myself.Y = imgui.InputInt("Y", _configuration.myself.Y)
             imgui.PopItemWidth()
             if success then
@@ -344,7 +347,7 @@ local function ConfigurationWindow(configuration)
                 this.changed = true
             end
 
-            imgui.PushItemWidth(100)
+            imgui.PushItemWidth(125)
             success, _configuration.myself.W = imgui.InputInt("Width", _configuration.myself.W)
             imgui.PopItemWidth()
             if success then
@@ -353,7 +356,7 @@ local function ConfigurationWindow(configuration)
             end
 
             imgui.SameLine(0, 10)
-            imgui.PushItemWidth(100)
+            imgui.PushItemWidth(125)
             success, _configuration.myself.H = imgui.InputInt("Height", _configuration.myself.H)
             imgui.PopItemWidth()
             if success then
