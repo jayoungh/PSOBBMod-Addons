@@ -175,7 +175,7 @@ local unitName = blue_light
 local unitKills = 0xFFFFFF00
 
 -- MAG
-local magName = 0xFFB060B0
+local magName = blue
 local magColor = 0xFF2D98B7
 local magStats = 0xFF28CC66
 local magPB = 0xFFFFFF00
