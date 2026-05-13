@@ -171,7 +171,7 @@ local function ConfigurationWindow(configuration)
             end
 
             imgui.Text("Position and Size")
-            imgui.PushItemWidth(200)
+            imgui.PushItemWidth(250)
             success, _configuration.aio.Anchor = imgui.Combo("Anchor", _configuration.aio.Anchor, anchorList, table.getn(anchorList))
             imgui.PopItemWidth()
             if success then
@@ -179,7 +179,7 @@ local function ConfigurationWindow(configuration)
                 this.changed = true
             end
 
-            imgui.PushItemWidth(100)
+            imgui.PushItemWidth(125)
             success, _configuration.aio.X = imgui.InputInt("X", _configuration.aio.X)
             imgui.PopItemWidth()
             if success then
@@ -187,8 +187,9 @@ local function ConfigurationWindow(configuration)
                 this.changed = true
             end
 
-            imgui.SameLine(0, 38)
-            imgui.PushItemWidth(100)
+            --imgui.SameLine(0, 38)
+            imgui.SameLine(0, 53)
+            imgui.PushItemWidth(125)
             success, _configuration.aio.Y = imgui.InputInt("Y", _configuration.aio.Y)
             imgui.PopItemWidth()
             if success then
@@ -196,7 +197,7 @@ local function ConfigurationWindow(configuration)
                 this.changed = true
             end
 
-            imgui.PushItemWidth(100)
+            imgui.PushItemWidth(125)
             success, _configuration.aio.W = imgui.InputInt("Width", _configuration.aio.W)
             imgui.PopItemWidth()
             if success then
@@ -205,7 +206,7 @@ local function ConfigurationWindow(configuration)
             end
 
             imgui.SameLine(0, 10)
-            imgui.PushItemWidth(100)
+            imgui.PushItemWidth(125)
             success, _configuration.aio.H = imgui.InputInt("Height", _configuration.aio.H)
             imgui.PopItemWidth()
             if success then
@@ -482,15 +483,15 @@ local function ConfigurationWindow(configuration)
                         _configuration.floor.changed = true
                         this.changed = true
                     end
-                    imgui.SameLine(0, 30)
-                    --imgui.SameLine(0, 58)
+                    --imgui.SameLine(0, 30)
+                    imgui.SameLine(0, 58)
                     if imgui.Checkbox("Hide Dimates", _configuration.floor.filter.HideDimates) then
                         _configuration.floor.filter.HideDimates = not _configuration.floor.filter.HideDimates
                         _configuration.floor.changed = true
                         this.changed = true
                     end
-                    imgui.SameLine(0, 65)
-                    --imgui.SameLine(0, 93)
+                    --imgui.SameLine(0, 65)
+                    imgui.SameLine(0, 93)
                     if imgui.Checkbox("Hide Trimates", _configuration.floor.filter.HideTrimates) then
                         _configuration.floor.filter.HideTrimates = not _configuration.floor.filter.HideTrimates
                         _configuration.floor.changed = true
@@ -501,15 +502,15 @@ local function ConfigurationWindow(configuration)
                         _configuration.floor.changed = true
                         this.changed = true
                     end
-                    imgui.SameLine(0, 31)
-                    --imgui.SameLine(0, 47)
+                    --imgui.SameLine(0, 31)
+                    imgui.SameLine(0, 47)
                     if imgui.Checkbox("Hide Difluids", _configuration.floor.filter.HideDifluids) then
                         _configuration.floor.filter.HideDifluids = not _configuration.floor.filter.HideDifluids
                         _configuration.floor.changed = true
                         this.changed = true
                     end
-                    imgui.SameLine(0, 66)
-                    --imgui.SameLine(0, 83)
+                    --imgui.SameLine(0, 66)
+                    imgui.SameLine(0, 83)
                     if imgui.Checkbox("Hide Trifluids", _configuration.floor.filter.HideTrifluids) then
                         _configuration.floor.filter.HideTrifluids = not _configuration.floor.filter.HideTrifluids
                         _configuration.floor.changed = true
@@ -537,8 +538,8 @@ local function ConfigurationWindow(configuration)
                         _configuration.floor.changed = true
                         this.changed = true
                     end
-                    imgui.SameLine(0, 38)
-                    --imgui.SameLine(0, 58)
+                    --imgui.SameLine(0, 38)
+                    imgui.SameLine(0, 58)
                     if imgui.Checkbox("Hide Antiparalysis", _configuration.floor.filter.HideAntiparalysis) then
                         _configuration.floor.filter.HideAntiparalysis = not _configuration.floor.filter.HideAntiparalysis
                         _configuration.floor.changed = true
@@ -549,8 +550,8 @@ local function ConfigurationWindow(configuration)
                         _configuration.floor.changed = true
                         this.changed = true
                     end
-                    imgui.SameLine(0, 41)
-                    --imgui.SameLine(0, 58)
+                    --imgui.SameLine(0, 41)
+                    imgui.SameLine(0, 58)
                     if imgui.Checkbox("Hide Trap Visions", _configuration.floor.filter.HideTrapVisions) then
                         _configuration.floor.filter.HideTrapVisions = not _configuration.floor.filter.HideTrapVisions
                         _configuration.floor.changed = true
@@ -569,15 +570,15 @@ local function ConfigurationWindow(configuration)
                         _configuration.floor.changed = true
                         this.changed = true
                     end
-                    imgui.SameLine(0, 17)
-                    --imgui.SameLine(0, 24)
+                    --imgui.SameLine(0, 17)
+                    imgui.SameLine(0, 24)
                     if imgui.Checkbox("Hide Digrinders", _configuration.floor.filter.HideDigrinders) then
                         _configuration.floor.filter.HideDigrinders = not _configuration.floor.filter.HideDigrinders
                         _configuration.floor.changed = true
                         this.changed = true
                     end
-                    imgui.SameLine(0, 51)
-                    --imgui.SameLine(0, 62)
+                    --imgui.SameLine(0, 51)
+                    imgui.SameLine(0, 62)
                     if imgui.Checkbox("Hide Trigrinders", _configuration.floor.filter.HideTrigrinders) then
                         _configuration.floor.filter.HideTrigrinders = not _configuration.floor.filter.HideTrigrinders
                         _configuration.floor.changed = true
@@ -588,14 +589,15 @@ local function ConfigurationWindow(configuration)
                         _configuration.floor.changed = true
                         this.changed = true
                     end
-                    imgui.SameLine(0, 21)
+                    --imgui.SameLine(0, 21)
+                    imgui.SameLine(0, 24)
                     if imgui.Checkbox("Hide Power Mats", _configuration.floor.filter.HidePowerMats) then
                         _configuration.floor.filter.HidePowerMats = not _configuration.floor.filter.HidePowerMats
                         _configuration.floor.changed = true
                         this.changed = true
                     end
-                    imgui.SameLine(0, 44)
-                    --imgui.SameLine(0, 62)
+                    --imgui.SameLine(0, 44)
+                    imgui.SameLine(0, 62)
                     if imgui.Checkbox("Hide Luck Mats", _configuration.floor.filter.HideLuckMats) then
                         _configuration.floor.filter.HideLuckMats = not _configuration.floor.filter.HideLuckMats
                         _configuration.floor.changed = true
@@ -606,15 +608,15 @@ local function ConfigurationWindow(configuration)
                         _configuration.floor.changed = true
                         this.changed = true
                     end
-                    imgui.SameLine(0, 36)
-                    --imgui.SameLine(0, 57)
+                    --imgui.SameLine(0, 36)
+                    imgui.SameLine(0, 57)
                     if imgui.Checkbox("Hide Defense Mats", _configuration.floor.filter.HideDefenseMats) then
                         _configuration.floor.filter.HideDefenseMats = not _configuration.floor.filter.HideDefenseMats
                         _configuration.floor.changed = true
                         this.changed = true
                     end
-                    imgui.SameLine(0, 32)
-                    --imgui.SameLine(0, 40)
+                    --imgui.SameLine(0, 32)
+                    imgui.SameLine(0, 40)
                     if imgui.Checkbox("Hide Evade Mats", _configuration.floor.filter.HideEvadeMats) then
                         _configuration.floor.filter.HideEvadeMats = not _configuration.floor.filter.HideEvadeMats
                         _configuration.floor.changed = true
@@ -631,7 +633,7 @@ local function ConfigurationWindow(configuration)
             end
 
             imgui.Text("Position and Size")
-            imgui.PushItemWidth(200)
+            imgui.PushItemWidth(250)
             success, _configuration.floor.Anchor = imgui.Combo("Anchor", _configuration.floor.Anchor, anchorList, table.getn(anchorList))
             imgui.PopItemWidth()
             if success then
@@ -639,7 +641,7 @@ local function ConfigurationWindow(configuration)
                 this.changed = true
             end
 
-            imgui.PushItemWidth(100)
+            imgui.PushItemWidth(125)
             success, _configuration.floor.X = imgui.InputInt("X", _configuration.floor.X)
             imgui.PopItemWidth()
             if success then
@@ -647,8 +649,9 @@ local function ConfigurationWindow(configuration)
                 this.changed = true
             end
 
-            imgui.SameLine(0, 38)
-            imgui.PushItemWidth(100)
+            --imgui.SameLine(0, 38)
+            imgui.SameLine(0, 53)
+            imgui.PushItemWidth(125)
             success, _configuration.floor.Y = imgui.InputInt("Y", _configuration.floor.Y)
             imgui.PopItemWidth()
             if success then
@@ -656,7 +659,7 @@ local function ConfigurationWindow(configuration)
                 this.changed = true
             end
 
-            imgui.PushItemWidth(100)
+            imgui.PushItemWidth(125)
             success, _configuration.floor.W = imgui.InputInt("Width", _configuration.floor.W)
             imgui.PopItemWidth()
             if success then
@@ -665,7 +668,7 @@ local function ConfigurationWindow(configuration)
             end
 
             imgui.SameLine(0, 10)
-            imgui.PushItemWidth(100)
+            imgui.PushItemWidth(125)
             success, _configuration.floor.H = imgui.InputInt("Height", _configuration.floor.H)
             imgui.PopItemWidth()
             if success then
@@ -768,7 +771,7 @@ local function ConfigurationWindow(configuration)
             end
 
             imgui.Text("Position and Size")
-            imgui.PushItemWidth(200)
+            imgui.PushItemWidth(250)
             success, _configuration.mags.Anchor = imgui.Combo("Anchor", _configuration.mags.Anchor, anchorList, table.getn(anchorList))
             imgui.PopItemWidth()
             if success then
@@ -776,7 +779,7 @@ local function ConfigurationWindow(configuration)
                 this.changed = true
             end
 
-            imgui.PushItemWidth(100)
+            imgui.PushItemWidth(125)
             success, _configuration.mags.X = imgui.InputInt("X", _configuration.mags.X)
             imgui.PopItemWidth()
             if success then
@@ -784,8 +787,9 @@ local function ConfigurationWindow(configuration)
                 this.changed = true
             end
 
-            imgui.SameLine(0, 38)
-            imgui.PushItemWidth(100)
+            --imgui.SameLine(0, 38)
+            imgui.SameLine(0, 53)
+            imgui.PushItemWidth(125)
             success, _configuration.mags.Y = imgui.InputInt("Y", _configuration.mags.Y)
             imgui.PopItemWidth()
             if success then
@@ -793,7 +797,7 @@ local function ConfigurationWindow(configuration)
                 this.changed = true
             end
 
-            imgui.PushItemWidth(100)
+            imgui.PushItemWidth(125)
             success, _configuration.mags.W = imgui.InputInt("Width", _configuration.mags.W)
             imgui.PopItemWidth()
             if success then
@@ -802,7 +806,7 @@ local function ConfigurationWindow(configuration)
             end
 
             imgui.SameLine(0, 10)
-            imgui.PushItemWidth(100)
+            imgui.PushItemWidth(125)
             success, _configuration.mags.H = imgui.InputInt("Height", _configuration.mags.H)
             imgui.PopItemWidth()
             if success then

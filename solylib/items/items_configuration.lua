@@ -20,7 +20,7 @@ local itemEquipped = 0xFFFFFFFF
 
 -- WEAPON
 local weaponUntekked = 0xFFFF0000
-local weaponName = 0xFFB060B0
+local weaponName = pink
 local weaponGrind = 0xFF28CC66
 local weaponSRankTitle = 0xFFFF0000
 local weaponSRankName = 0xFF2D98B7
@@ -93,16 +93,16 @@ local weaponAttributesEnabled = true
 local weaponAttributes =
 {
 --Value, Native,     A Beast,    Machine,    Dark
-    100, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,
-     90, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,
-     80, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,
-     70, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,
-     60, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,
-     50, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,
-     40, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,
-     30, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,
-     20, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,
-     10, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF,
+    100, 0xFF2B801F, 0xFFFFFF33, 0xFFFF4500, 0xFFCD00FF,
+     90, 0xFF3B8E2D, 0xFFFFFF3E, 0xFFFF4F0E, 0xFFD315FF,
+     80, 0xFF4A9C3C, 0xFFFFFF49, 0xFFFF5A1C, 0xFFD82AFF,
+     70, 0xFF5AAA4A, 0xFFFFFF55, 0xFFFF642A, 0xFFDE3FFF,
+     60, 0xFF69B859, 0xFFFFFF60, 0xFFFF6E39, 0xFFE354FF,
+     50, 0xFF79C667, 0xFFFFFF6B, 0xFFFF7947, 0xFFE969FF,
+     40, 0xFF88D476, 0xFFFFFF77, 0xFFFF8355, 0xFFEE7EFF,
+     30, 0xFF99E284, 0xFFFFFF82, 0xFFFF8D63, 0xFFF493FF,
+     20, 0xFFA7F093, 0xFFFFFF8D, 0xFFFF9871, 0xFFF9A8FF,
+     10, 0xFFB8FFA1, 0xFFFFFF99, 0xFFFFA280, 0xFFFFBDFF,
       0, 0xFFA0A0A0, 0xFFA0A0A0, 0xFFA0A0A0, 0xFFA0A0A0,
      -1, 0xFFA0A0A0, 0xFFA0A0A0, 0xFFA0A0A0, 0xFFA0A0A0,
 }
@@ -123,16 +123,18 @@ local weaponHit =
 }
 
 -- ARMOR (Frame and Barrier)
-local armorName = 0xFFB060B0
-local armorStats = 0xFF28CC66
+local armorName = blue
+local armorStatsPoor = brown
+local armorStatsGood = yellow
+local armorStatsMax = red
 local armorSlots = 0xFFFFFF00
 
 -- ARMOR (Unit)
-local unitName = 0xFFB060B0
+local unitName = blue_light
 local unitKills = 0xFFFFFF00
 
 -- MAG
-local magName = 0xFFB060B0
+local magName = blue
 local magColor = 0xFF2D98B7
 local magStats = 0xFF28CC66
 local magPB = 0xFFFFFF00
@@ -145,7 +147,7 @@ local magFeedTimer =
 }
 
 -- TOOL
-local toolName = 0xFFB060B0
+local toolName = green
 local toolAmount = 0xFF28CC66
 
 -- TECHNIQUE
@@ -188,7 +190,9 @@ return
     weaponAttributes = weaponAttributes,
     weaponHit = weaponHit,
     armorName = armorName,
-    armorStats = armorStats,
+    armorStatsPoor = armorStatsPoor,
+    armorStatsGood = armorStatsGood,
+    armorStatsMax = armorStatsMax,
     armorSlots = armorSlots,
     unitName = unitName,
     unitKills = unitKills,

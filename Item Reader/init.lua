@@ -218,8 +218,8 @@ else
                 HideUselessUnits = false,
                 FilterTechs = false,
                 AttackTechMinLevel = 29,
-                SupportTechMinLevel = 29, 
-                MegidGrantsMinLevel = 26, 
+                SupportTechMinLevel = 29,
+                MegidGrantsMinLevel = 26,
                 AntiMinLevel = 7,
                 HideReverserAndRyuker = false,
                 HideMaxHumanTechs = false,
@@ -496,49 +496,50 @@ local function writeArmorStats(item, floor)
     result = result .. TextCWrapper(false, lib_items_cfg.white, "[")
 
     local statColor
-    if item.armor.dfp == 0 then
-        statColor = lib_items_cfg.grey
+    if options.highlightMaxStats and item.armor.dfp == item.armor.dfpMax then
+        statColor = lib_items_cfg.armorStatsMax
+    elseif options.highlightMaxStats and item.armor.dfp >= item.armor.dfpMax / 2 then
+        statColor = lib_items_cfg.armorStatsGood
+    elseif options.highlightMaxStats and item.armor.dfp > 0
+        statColor = lib_items_cfg.armorStatsPoor
     else
-        if options.highlightMaxStats and item.armor.dfp == item.armor.dfpMax then
-            statColor = lib_items_cfg.gold
-        else
-            statColor = lib_items_cfg.armorStats
-        end
+        statColor = lib_items_cfg.grey
     end
     result = result .. TextCWrapper(false, statColor, "%i", item.armor.dfp)
     result = result .. TextCWrapper(false, lib_items_cfg.white, "/")
-    if item.armor.dfpMax == 0 then
-        statColor = lib_items_cfg.grey
+    if options.highlightMaxStats and item.armor.dfp == item.armor.dfpMax then
+        statColor = lib_items_cfg.armorStatsMax
+    elseif options.highlightMaxStats and item.armor.dfp >= item.armor.dfpMax / 2 then
+        statColor = lib_items_cfg.armorStatsGood
+    elseif options.highlightMaxStats and item.armor.dfp > 0
+        statColor = lib_items_cfg.armorStatsPoor
     else
-        if options.highlightMaxStats and item.armor.dfp == item.armor.dfpMax then
-            statColor = lib_items_cfg.gold
-        else
-            statColor = lib_items_cfg.armorStats
-        end
+        statColor = lib_items_cfg.grey
     end
     result = result .. TextCWrapper(false, statColor, "%i", item.armor.dfpMax)
 
     result = result .. TextCWrapper(false, lib_items_cfg.white, " | ")
 
-    if item.armor.evp == 0 then
-        statColor = lib_items_cfg.grey
+    if options.highlightMaxStats and item.armor.evp == item.armor.evpMax then
+        statColor = lib_items_cfg.armorStatsMax
+    elseif options.highlightMaxStats and item.armor.evp >= item.armor.evpMax / 2 then
+        statColor = lib_items_cfg.armorStatsGood
+    elseif options.highlightMaxStats and item.armor.evp > 0 then
+        statColor = lib_items_cfg.armorStatsPoor
     else
-        if options.highlightMaxStats and item.armor.evp == item.armor.evpMax then
-            statColor = lib_items_cfg.gold
-        else
-            statColor = lib_items_cfg.armorStats
-        end
+        statColor = lib_items_cfg.grey
     end
     result = result .. TextCWrapper(false, statColor, "%i", item.armor.evp)
     result = result .. TextCWrapper(false, lib_items_cfg.white, "/")
-    if item.armor.evpMax == 0 then
-        statColor = lib_items_cfg.grey
+    if options.highlightMaxStats and item.armor.evp == item.armor.evpMax then
+        statColor = lib_items_cfg.armorStatsMax
+    elseif options.highlightMaxStats and item.armor.evp >= item.armor.evpMax / 2 then
+        statColor = lib_items_cfg.armorStatsGood
+
+    elseif options.highlightMaxStats and item.armor.evp > 0 then
+        statColor = lib_items_cfg.armorStatsPoor
     else
-        if options.highlightMaxStats and item.armor.evp == item.armor.evpMax then
-            statColor = lib_items_cfg.gold
-        else
-            statColor = lib_items_cfg.armorStats
-        end
+        statColor = lib_items_cfg.grey
     end
     result = result .. TextCWrapper(false, statColor, "%i", item.armor.evpMax)
     result = result .. TextCWrapper(false, lib_items_cfg.white, "] ")
@@ -571,6 +572,24 @@ local function ProcessWeapon(item, floor)
             -- Show Claire's Deal 5 items
             if lib_claires_deal.IsClairesDealItem(item) and options.floor.filter.ShowClairesDeal then
                 show_item = true
+            end
+        end
+
+        if nameColor == lib_items_cfg.weaponName or nameColor == COLOR_UNCOMMON then
+            if item.weapon.stats[6] >= 60 then
+                nameColor = COLOR_UBER
+            elseif item.weapon.stats[6] >= 55 then
+                nameColor = COLOR_LEGENDARY
+            elseif item.weapon.stats[6] >= 50 then
+                nameColor = COLOR_RARE
+            end
+        elseif nameColor == COLOR_LEGENDARY and item.weapon.stats[6] >= 30 then
+            nameColor = COLOR_UBER
+        elseif nameColor == COLOR_RARE then
+            if item.weapon.stats[6] >= 50 then
+                nameColor = COLOR_UBER
+            elseif item.weapon.stats[6] >= 30 then
+                nameColor = COLOR_LEGENDARY
             end
         end
     end
@@ -636,7 +655,7 @@ local function ProcessWeapon(item, floor)
         else
             if options.hideSpecialWeaponName == true then
                 result = result .. TextCWrapper(false, nameColor, "%s ", TrimString("SPECIAL WEAPON", options.itemNameLength))
-            else 
+            else
                 result = result .. TextCWrapper(false, nameColor, "%s ", TrimString(item.name, options.itemNameLength))
             end
 
@@ -1033,7 +1052,7 @@ local function ProcessTool(item, floor)
                     show_item = true
                 elseif options.floor.filter.HideMaxNewmanTechs == false and item.tool.level == 20 then
                     show_item = true
-                elseif item.tool.level >= options.floor.filter.SupportTechMinLevel then 
+                elseif item.tool.level >= options.floor.filter.SupportTechMinLevel then
                     show_item = true
                 end
             -- Is a max tier tech?
@@ -1102,7 +1121,7 @@ local function ProcessTool(item, floor)
             result = result .. TextCWrapper(false, lib_items_cfg.techLevel, "Lv%i ", item.tool.level)
         else
             result = result .. TextCWrapper(false, nameColor, "%s ", TrimString(item.name, options.itemNameLength))
-            if item.tool.count > 0 then
+            if item.tool.count > 1 then
                 result = result .. TextCWrapper(false, lib_items_cfg.toolAmount, "x%i ", item.tool.count)
             end
         end
@@ -1224,10 +1243,10 @@ local function PresentBank(save)
     -- initializes all of the bank items.
     local maxNumBankItems = pso.read_u32(0x6ca302 + 1)
     if options.aio.newLineForMesetaInventory then
-        TextCWrapper(true, lib_items_cfg.itemIndex, "Meseta: %i | Items: %i / %i", 
+        TextCWrapper(true, lib_items_cfg.itemIndex, "Meseta: %i | Items: %i / %i",
             cache_bank.meseta, itemCount, maxNumBankItems)
     else
-        TextCWrapper(false, lib_items_cfg.itemIndex, "Meseta: %i | Items: %i / %i", 
+        TextCWrapper(false, lib_items_cfg.itemIndex, "Meseta: %i | Count: %i", cache_bank.meseta, itemCount)
             cache_bank.meseta, itemCount, maxNumBankItems)
     end
 
@@ -1319,12 +1338,12 @@ end
 local function BuildAIOSelection()
     local selectionList = { "Inventory", "Bank", "Floor", "Mags" }
 
-    --local playerList = lib_characters.GetPlayerList()
-    --local playerListCount = table.getn(playerList)
-    --for i=1, playerListCount, 1 do
-    --    local playerName = lib_characters.GetPlayerName(playerList[i].address)
-    --    table.insert(selectionList, playerName)
-    --end
+    local playerList = lib_characters.GetPlayerList()
+    local playerListCount = table.getn(playerList)
+    for i=1, playerListCount, 1 do
+        local playerName = lib_characters.GetPlayerName(playerList[i].address)
+        table.insert(selectionList, playerName)
+    end
 
     return selectionList
 end
